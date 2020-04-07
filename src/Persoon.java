@@ -61,19 +61,16 @@ public class Persoon extends mijnGames{
         return null;
     }
 
-    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> array){
-        int x = 0;
-        if(mijnGames.equals(array)){
-            for(Game g: mijnGames){
-                if(!g.equals(array.get(x))){
-                    array.add(g);
-                    System.out.println(array);
-                    x++;
-                }
+    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> teKoop){
+        ArrayList<Game> temp = new ArrayList<Game>();
+        for(Game g: teKoop){
+            if(!mijnGames.contains(g)){
+                temp.add(g);
             }
         }
-        return null;
+        return temp;
     }
+
 
     public String toString(){
         return naam + " heeft een budget van €" + String.format("%.2f", budget) + " en bezit de volgende games:" + games();
