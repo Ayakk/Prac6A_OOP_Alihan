@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Persoon extends mijnGames{
     private String naam;
     private double budget;
@@ -44,11 +46,33 @@ public class Persoon extends mijnGames{
 
     public String games(){
         String out = "";
-
         for (Game g:mijnGames) {
             out += "\n" + g;
         }
         return out;
+    }
+
+    public Game zoekGameOpNaam(String name){
+        for(Game g: mijnGames){
+            if(mijnGames.contains(g)){
+                return g;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> array){
+        int x = 0;
+        if(mijnGames.equals(array)){
+            for(Game g: mijnGames){
+                if(!g.equals(array.get(x))){
+                    array.add(g);
+                    System.out.println(array);
+                    x++;
+                }
+            }
+        }
+        return null;
     }
 
     public String toString(){
